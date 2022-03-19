@@ -1,0 +1,15 @@
+<h1>User info</h1>
+
+<div>
+ <p><%= image_tag 'sample-author1.jpg' %>
+ <p>name <%= @user.name %> </p>
+ <p>introduction <%= @user.introduction %> </p>
+</div>
+
+<h1>Books</h1>
+<% @books.each do |book| %> 
+<div>
+  <p>Title：<%= book.title %></p>
+  <p>opinion：<%= book.opinion %></p>.
+</div>
+<% end %>
