@@ -1,3 +1,13 @@
+<h1>User info</h1>
+ <% @books.each do |book| %>
+<div>
+  <%= image_tag book.get_image %>
+  <p>投稿ユーザー画像：<%= image_tag 'sample-author1.jpg' %></p>
+  <p>Name：<%= book.user.name %></p>
+  <p>Name：<%= book.user.name%></p>
+</div>
+<% end %>
+
 <h1>New book</h1>
   <%= form_with model: @book do |f| %>
     <h4>画像</h4>
