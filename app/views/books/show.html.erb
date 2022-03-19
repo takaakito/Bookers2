@@ -5,5 +5,15 @@
   <p><%= @book.user.name %></p>
   <p><%= @book.title %></p>
   <p><%= @book.opinion %></p>
+  
+  <% if @book.user == current_user %>
+  <%= link_to 'Edit', edit_book_path(@book.id) %>
+  <% end %>
 
+ <% if @book.user == current_user %>
+ <%= link_to "destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+ <% end %>
+
+
+  
 </div>
