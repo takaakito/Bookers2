@@ -17,11 +17,16 @@
   <% end %>
 
 <h1>Books</h1>
+
 <% @books.each do |book| %>
 <div>
-  <%= image_tag book.user.get_profile_image(100,100) %>
-  <p>Title：<%= book.title%></p>
-  <p>Opinion：<%= book.opinion %></p>
+   <%= link_to user_path(@user) do %>
+  　<%= image_tag book.user.get_profile_image(100,100) %>
+　 <% end %>
+　<%= link_to book_path(book.id) do %>
+　<%= book.title %>
+　 <% end %>
+   <p>Opinion：<%= book.opinion %></p>
 </div>
 <% end %>
 

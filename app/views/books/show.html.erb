@@ -1,10 +1,19 @@
 <h1>Book detail</h1>
 
 <div>
-  <%= image_tag @book.get_image %>
-  <p><%= @book.user.name %></p>
-  <p><%= @book.title %></p>
-  <p><%= @book.opinion %></p>
+    <%= link_to user_path(@book.user_id) do %>
+  　<%= image_tag @book.user.get_profile_image(100,100) %>
+　  <% end %>
+　 
+　  <%= link_to user_path(@book.user_id) do %>
+    <%= @book.user.name %>
+    <% end %>
+  　
+  　<%= link_to book_path(@book.id) do %>
+　  <%= @book.title %>
+　  <% end %>
+   
+    <%= @book.opinion %>
   
   <% if @book.user == current_user %>
   <%= link_to 'Edit', edit_book_path(@book.id) %>
@@ -14,6 +23,5 @@
  <%= link_to "destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
  <% end %>
 
-
-  
 </div>
+
