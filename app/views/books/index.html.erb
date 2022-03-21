@@ -1,10 +1,10 @@
 <h1>User info</h1>
 
 <div>
- <p><%= image_tag 'sample-author1.jpg' %>
+  <%= image_tag current_user.get_profile_image(100,100) %>
  <p>name <%= current_user.name %> </p>
  <p>introduction <%= current_user.introduction %> </p>
- <%= link_to 'Edit', edit_user_path(@user) %>
+ <%= link_to 'Edit', edit_user_path(@user)%>
 </div>
 
 <h1>New book</h1>
@@ -19,8 +19,9 @@
 <h1>Books</h1>
 <% @books.each do |book| %>
 <div>
-  <%= image_tag book.get_image %>
+  <%= image_tag book.user.get_profile_image(100,100) %>
   <p>Title：<%= book.title%></p>
   <p>Opinion：<%= book.opinion %></p>
 </div>
 <% end %>
+
