@@ -1,32 +1,51 @@
-<h1>User info</h1>
-
-<div>
-  <%= image_tag current_user.get_profile_image(100,100) %>
- <p>name <%= current_user.name %> </p>
- <p>introduction <%= current_user.introduction %> </p>
- <%= link_to 'Edit', edit_user_path(@user)%>
-</div>
-
-<h1>New book</h1>
+ <div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+     <h1>User info</h1>
+     <table class="table">
+  <tr><th>name</th> <td><%= current_user.name %></td></tr>
+  <tr><th>introduction</th> <td><%= current_user.introduction %></td></tr>
+</table>
+   <button>
+  <i class="fas fa-user-cog"></i>
+   </button>
+ <h2 class="mt-3">New book</h2>
   <%= form_with model: @book do |f| %>
     <h4>Title</h4>
       <%= f.text_field :title %>
     <h4>Opinion</h4>
       <%= f.text_area :opinion %>
-    <%= f.submit 'CreateBook' %>
-  <% end %>
-
-<h1>Books</h1>
-
-<% @books.each do |book| %>
+    <%= f.submit nil, class: 'btn btn-success' %>
+<% end %>
+</div>
+<div class="col-md-8 offset-md-1">
+ <h1>Books</h1>
+ <table class="table table-hover table-inverse">
+ <thead>
+      <tr>
+      <th>Title</th>
+      <th>Opinion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 <div>
-   <%= link_to user_path(@user) do %>
+ <tr>
+ <% @books.each do |book| %> 
+     <td>  <%= link_to user_path(book.user_id) do %>
   　<%= image_tag book.user.get_profile_image(100,100) %>
-　 <% end %>
-　<%= link_to book_path(book.id) do %>
-　<%= book.title %>
-　 <% end %>
-   <p>Opinion：<%= book.opinion %></p>
+　  <% end %>
+　  </td>
+
+     <td>　<%= link_to book_path(book.id) do %>
+           　<%= book.title %>
+　           <% end %>
+　   </td>
+　   <td><%= book.opinion %></td>
+　   
+　 </tr>
 </div>
 <% end %>
+     </div>
+  <div>
+<div>
 

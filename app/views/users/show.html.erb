@@ -1,30 +1,54 @@
-<h1>User info</h1>
-
-<div>
+ <div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+     <h1>User info</h1>
  <%= image_tag @user.get_profile_image(100,100) %>
- <p>name <%= @user.name %> </p>
- <p>introduction <%= @user.introduction %> </p>
-</div>
-
-
-<h1>New book</h1>
+ <table class="table">
+  <tr><th>name</th> <td><%= @user.name %></td></tr>
+  <tr><th>introduction</th> <td><%= @user.introduction %></td></tr>
+</table>
+   <button>
+  <i class="fas fa-user-cog"></i>
+   </button>
+ <h2 class="mt-3">New book</h2>
   <%= form_with model: @book do |f| %>
     <h4>Title</h4>
       <%= f.text_field :title %>
     <h4>Opinion</h4>
       <%= f.text_area :opinion %>
-    <%= f.submit 'CreateBook' %>
+    <%= f.submit  "Create Book", class: 'btn btn-success' %>
 <% end %>
-
-<h1>Books</h1>
-<% @books.each do |book| %> 
+</div>
+<div class="col-md-8 offset-md-1">
+ <h1>Books</h1>
+ <table class="table table-hover table-inverse">
+ <thead>
+      <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Opinion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 <div>
-   <%= link_to user_path(@user) do %>
-   <%= image_tag book.user.get_profile_image(100,100) %>
-　 <% end %>
-  <%= link_to book_path(book.id) do %>
-　<%= book.title %>
-　<% end %>
-  <p>opinion：<%= book.opinion %></p>. 
+ <% @books.each do |book| %> 
+  <tr>
+    <td><%= image_tag book.user.get_profile_image(100,100) %>
+          <%= link_to user_path(@user) do %>
+　          <% end %>
+　  </td>
+     <td> <%= link_to book_path(book.id) do %>
+           <%= book.title %>
+　          <% end %>
+　   </td>
+      <td><%= book.opinion %> </td>
 </div>
 <% end %>
+     </div>
+  <div>
+<div>
+
+
+
+
+

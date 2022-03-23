@@ -1,9 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
 <h2>Editing Book</h2>
 <%= form_with model: @book do |f| %>
-  <label for="inputTitle">title</label>
-  <%= f.text_field :title, autofocus: true, id:"inputTitle", placeholder:"Title"%>
-  <label for="inputopinion">opinion</label>
-  <%= f.text_field :opinion, autofocus: true, id:"Inputintroduction", placeholder:"Opinion"%>
-  <%= f.submit "Update Book" %>
+  <div class="form-group">
+  <label for="inputTitle">Title</label>
+  <%= f.text_field :Title, autofocus: true, id:"inputTitle", placeholder:"Title",size:"53"%></div>
+   <div class="form-group">
+  <label for="inputopinion">Opinion</label>
+  <%= f.text_area :Opinion, autofocus: true, id:"Inputintroduction", placeholder:"Opinion",size:"53"%></div>
+    <div class="form-group">
+  <%= f.submit"Update Book", class: "btn btn-success" %></div>
 <% end %>
 
+<%= link_to 'Show', book_path(@book.id) %>
+|
+<%= link_to 'back', books_path %>
