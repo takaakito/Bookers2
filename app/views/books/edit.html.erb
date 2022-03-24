@@ -11,16 +11,16 @@
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
 <h2>Editing Book</h2>
 <%= form_with model: @book do |f| %>
-  <div class="form-group">
-  <label for="inputTitle">Title</label>
-  <%= f.text_field :Title, autofocus: true, id:"inputTitle", placeholder:"Title",size:"53"%></div>
-   <div class="form-group">
-  <label for="inputopinion">Opinion</label>
-  <%= f.text_area :Opinion, autofocus: true, id:"Inputintroduction", placeholder:"Opinion",size:"53"%></div>
-    <div class="form-group">
-  <%= f.submit"Update Book", class: "btn btn-success" %></div>
+    <h4>Title</h4>
+      <%= f.text_field :title %>
+    <h4>Opinion</h4>
+      <%= f.text_area :opinion %><br>
+  <%= f.submit"Update Book", class: "btn btn-success" %>
 <% end %>
 
 <%= link_to 'Show', book_path(@book.id) %>
 |
 <%= link_to 'back', books_path %>
+</div>
+</div>
+</div>
