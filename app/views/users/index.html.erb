@@ -6,20 +6,21 @@
   <tr><th>name</th> <td><%= current_user.name %></td></tr>
   <tr><th>introduction</th> <td><%= current_user.introduction %></td></tr>
 </table>
-   <button>
-  <i class="fas fa-user-cog"></i>
-   </button>
+<div class="row">
+   <%= link_to  edit_user_path(current_user), class: "btn btn-outline-secondary btn-block" do %>
+     <i class="fas fa-user-cog"></i>
+      <% end %>
+</div>
  <h2 class="mt-3">New book</h2>
-  <%= form_with model: @book do |f| %>
+    <%= form_with model: @book do |f| %>
     <h4>Title</h4>
       <%= f.text_field :title %>
     <h4>Opinion</h4>
       <%= f.text_area :opinion %>
-    <%= f.submit nil, class: 'btn btn-success' %>
+    <%= f.submit "Cteate", class: 'btn btn-success' %>
 <% end %>
 </div>
 <div class="col-md-8 offset-md-1">
- <h1>Books</h1>
  <table class="table table-hover table-inverse">
  <thead>
       <tr>
