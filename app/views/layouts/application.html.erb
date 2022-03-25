@@ -8,18 +8,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+ </head>
+
 
 <body>
-<header>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand" href="/">Bookers</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+     <div class="container">
+      <a class="navbar-brand" href="/">Bookers</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
               <%= link_to user_path(current_user.id), class: 'nav-link text-light' do%>
@@ -46,40 +47,41 @@
                <% end %>
           </li>
         
-        <% else %>
-          <li class="nav-item">
+           <% else %>
+           <li class="nav-item">
               <%= link_to  root_path, class: 'nav-link text-light' do %>
               <i class="fas fa-home"></i>
                Homes
               <% end %>
-          </li>
-          <li class="nav-item">
+           </li>
+           <li class="nav-item">
               <%= link_to  about_path, class: 'nav-link text-light' do %>
               <i class="fas fa-link"></i>
                About
               <% end %>
-          </li>
-          <li class="nav-item">
+           </li>
+           <li class="nav-item">
               <%= link_to new_user_registration_path, class: 'nav-link text-light' do %>
               <i class="fas fa-user-plus"></i>
                SignUp
               <% end %>
-          </li>
-          <li class="nav-item">
+           </li>
+           <li class="nav-item">
               <%= link_to  new_user_session_path, class: 'nav-link text-light' do %>
               <i class="fas fa-sign-in-alt"></i>
               Login
               <% end %>
-          </li>
-        </ul>
-        <% end %>
-   </nav>
-</header>
-　<% flash.each do |key, value| %>
+           </li>
+          <% end %>
+           </ul>
+         </nav>
+      </header>
+　  <main>
+　  <% flash.each do |key, value| %>
     <%= content_tag(:div, value, class: "#{key}") %>
-  <% end %>
+    <% end %>
     <%= yield %>
-  </body>
-
-
+   </main>
+   <footer></footer>
+ </body>
 </html>
