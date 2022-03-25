@@ -8,7 +8,8 @@
 <% end %>
   <div class="row">
     <div class="col-md-3">
-     <h1>User info</h1>
+     <h2>User info</h2>
+     <%= image_tag current_user.get_profile_image(50,50) %></p>
      <table class="table">
   <tr><th>name</th> <td><%= current_user.name %></td></tr>
   <tr><th>introduction</th> <td><%= current_user.introduction %></td></tr>
@@ -30,7 +31,7 @@
 <% end %>
 </div>
 <div class="col-md-8 offset-md-1">
- <h1>Books</h1>
+ <h2>Books</h2>
  <table class="table table-hover table-inverse">
  <thead>
       <tr>
@@ -43,7 +44,7 @@
  <tr>
  <% @books.each do |book| %> 
      <td>  <%= link_to user_path(book.user_id) do %>
-  　<%= image_tag book.user.get_profile_image(100,100) %>
+  　<%= image_tag book.user.get_profile_image(50,50) %>
 　  <% end %>
 　  </td>
      <td>　<%= link_to book_path(book.id) do %>
