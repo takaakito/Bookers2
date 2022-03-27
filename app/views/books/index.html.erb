@@ -1,14 +1,5 @@
 <div class="container px-5 px-sm-0">
-  <div id="error_explanation">
-   <% if @book.errors.any? %>
-   <h3><%= @book.errors.count %>errors prohibited this obj from being saved:</h3>
-    <ul>
-    <% @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
- </div>
-<% end %>
+  <%= render 'error',book: @book%>
   <div class="row">
     <div class="col-md-3">
      <h2>User info</h2>
@@ -45,7 +36,7 @@
   </thead>
   <tbody>
  <tr>
- <% @books.each do |book| %> 
+ <% @books.each do |book| %>
      <td>  <%= link_to user_path(book.user_id) do %>
   　<%= image_tag book.user.get_profile_image(50,50) %>
 　  <% end %>
