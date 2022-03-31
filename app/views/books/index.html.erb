@@ -20,8 +20,8 @@
     <h4>Title</h4>
       <%= f.text_field :title %>
     <h4>Opinion</h4>
-      <%= f.text_area :opinion %>
-    <%= f.submit nil, class: 'btn btn-success' %>
+      <%= f.text_area :body %>
+    <%= f.submit "Cteate", class: 'btn btn-success' %>
 <% end %>
 </div>
 <div class="col-md-8 offset-md-1">
@@ -45,7 +45,7 @@
            <%= book.title %>
 　       <% end %>
 　   </td>
-　   <td><%= book.opinion %></td>
+　   <td><%= book.body %></td>
 　  </tr>
 <% end %>
   </tbody>

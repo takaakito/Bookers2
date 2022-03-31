@@ -3,7 +3,7 @@ class Book < ApplicationRecord
    belongs_to :user
    
   validates :title, presence: true
-  validates :opinion, presence: true,length: { maximum: 75 } 
+  validates :body, presence: true,length: { maximum: 75 } 
    
    
   def get_image

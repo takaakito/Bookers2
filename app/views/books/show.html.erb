@@ -6,7 +6,7 @@
     <label>Title</label><br>
       <%= f.text_field :title %><br
     <label>Opinion</label><br>
-      <%= f.text_area :opinion %>
+      <%= f.text_area :body %>
     <%= f.submit nil, class: 'btn btn-success' %>
 <% end %>
 </div>
@@ -24,7 +24,7 @@
           <%= @book.title %>
 　         <% end %>
 　</td>
-　<td><%= @book.opinion %></td>
+　<td><%= @book.body %></td>
 　       <% if @book.user == current_user %>
 　<td>   <%= link_to 'Edit', edit_book_path(@book.id),class: "btn btn-sm btn-success" %>
 　       <% end %></td>
