@@ -1,7 +1,19 @@
 <% if flash[:notice] %>
 <% end %>
-<!-- user info -->
-<%= render 'userinfo'%>
+ <div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+     <h1>User info</h1>
+      <%= image_tag @user.get_profile_image(50,50) %></p>
+     <table class="table">
+  <tr><th>name</th> <td><%= @user.name %></td></tr>
+  <tr><th>introduction</th> <td><%= @user.introduction %></td></tr>
+</table>
+<div class="row">
+   <%= link_to  edit_user_path(current_user), class: "btn btn-outline-secondary btn-block" do %>
+     <i class="fas fa-user-cog"></i>
+      <% end %>
+</div>
  <h2 class="mt-3">New book</h2>
   <%= form_with model: Book.new do |f| %>
     <h4>Title</h4>
@@ -33,7 +45,7 @@
            <%= book.title %>
 　          <% end %>
 　   </td>
-      <td><%= book.opinion %> </td>
+      <td><%= book.body %> </td>
     </tr>  
 <% end %>
   </tbody>
